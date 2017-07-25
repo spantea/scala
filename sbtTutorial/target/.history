@@ -1,0 +1,20 @@
+exit
+compile
+run
+help
+tasks
+exit
+compile
+console
+test
+last test:executeTests
+exit
+reload
+test
+~test
+exit
+test
+exit
+test
+help
+exit
