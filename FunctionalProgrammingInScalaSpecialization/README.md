@@ -1,1 +1,1 @@
-Functional Program Design in Scala Course
+Functional Programming in Scala Specialization
