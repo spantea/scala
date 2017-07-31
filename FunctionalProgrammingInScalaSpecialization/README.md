@@ -1,1 +1,1 @@
-Func Prog Spec
+Functional Program Design in Scala Course
