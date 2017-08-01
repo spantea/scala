@@ -110,5 +110,22 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("intersect contains elements from both sets") {
+    new TestSets {
+      val s4 = union(singletonSet(1), singletonSet(2))
+      val s = intersect(s1, s2)
+      assert(!contains(s, 1), "Intersect 1")
+      assert(contains(intersect(s4, s1), 1), "Intersect (1,2) with 1")
+    }
+  }
 
+  test("filter returns the subset of `s` for which `p` holds") {
+    new TestSets {
+      val s4 = union(union(singletonSet(1), singletonSet(2)), union(singletonSet(3), singletonSet(4)))
+
+      val evenNums = filter(s4, x => x % 2 == 0)
+      assert(contains(evenNums, 2), "Filter evenNums with 2")
+      assert(!contains(evenNums, 3), "Filter evenNums with 2")
+    }
+  }
 }
