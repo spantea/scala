@@ -1,3 +1,4 @@
+
 abstract class Nat {
   def isZero: Boolean
   def predecessor: Nat
@@ -92,3 +93,4 @@ s5.show
 
 val s6 = Prod(Sum(Var("x"), Num(9)), Prod(Var("x"), Num(4)))
 s6.show
+

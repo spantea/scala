@@ -1,3 +1,5 @@
+import patmat.Huffman.Bit
+
 def test(pair: (Char, Int), hs: List[(Char, Int)], xs: List[(Char, Int)]): List[(Char, Int)] = xs match {
   case Nil => hs ::: pair :: Nil
   case (pair._1, n) :: ys => hs ::: (pair._1, n + 1) :: xs.tail
@@ -50,3 +52,12 @@ def t1(xs: List[Int]): Boolean = xs match {
 }
 
 t1(List(1))
+
+
+def matchTest(bits: List[Bit]) = bits match {
+  case 0::xs => println(234234)
+}
+
+matchTest(List(0))
+
+val tl = 0 :: Nil ::: 1::Nil

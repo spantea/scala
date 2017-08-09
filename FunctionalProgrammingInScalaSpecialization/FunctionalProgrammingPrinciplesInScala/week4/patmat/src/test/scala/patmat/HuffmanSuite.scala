@@ -33,6 +33,13 @@ class HuffmanSuite extends FunSuite {
     assert(string2Chars("hello, world") === List('h', 'e', 'l', 'l', 'o', ',', ' ', 'w', 'o', 'r', 'l', 'd'))
   }
 
+  test("times") {
+    assert(times(List('A', 'B', 'C', 'A', 'A')) === List(('A', 3), ('C', 1), ('B', 1)))
+  }
+
+  test("times List('a', 'b', 'a')") {
+    assert(times(List('a', 'b', 'a')) === List(('a', 2), ('b', 1)))
+  }
 
   test("makeOrderedLeafList for some frequency table") {
     assert(makeOrderedLeafList(List(('t', 2), ('e', 1), ('x', 3))) === List(Leaf('e',1), Leaf('t',2), Leaf('x',3)))
@@ -44,10 +51,22 @@ class HuffmanSuite extends FunSuite {
     assert(combine(leaflist) === List(Fork(Leaf('e',1),Leaf('t',2),List('e', 't'),3), Leaf('x',4)))
   }
 
+  test("test convert") {
+    new TestTrees {
+      val t: CodeTree = Fork(Fork(Leaf('a', 1), Leaf('b', 1), List('a', 'b'), 2), Leaf('d', 2), List('a', 'b', 'd'), 4)
+      assert(convert(t) === List(('a', List(0, 0)), ('b', List(0, 1)), ('d', List(1))))
+    }
+  }
 
   test("decode and encode a very short text should be identity") {
     new TestTrees {
       assert(decode(t1, encode(t1)("ab".toList)) === "ab".toList)
+    }
+  }
+
+  test("quick encode") {
+    new TestTrees {
+      
     }
   }
 
