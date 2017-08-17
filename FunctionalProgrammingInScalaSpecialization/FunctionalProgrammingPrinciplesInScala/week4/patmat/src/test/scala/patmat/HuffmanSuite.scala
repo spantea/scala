@@ -66,7 +66,7 @@ class HuffmanSuite extends FunSuite {
 
   test("quick encode") {
     new TestTrees {
-      
+
     }
   }
 
