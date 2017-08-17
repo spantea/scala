@@ -50,14 +50,6 @@ def squareList2(xs: List[Int]): List[Int] = xs map (x => x * x)
 squareList(List(2, 4, 5))
 squareList2(List(2, 4, 5))
 
-//def pack[T](xs: List[T]): List[List[T]] = xs match {
-//  case Nil => Nil
-//  case x :: xs1 =>
-//}
-//
-//pack(List(1, 1, 2, 3, 3, 3, 5, 5))
-
-
 def isPrime(n: Int): Boolean = (2 until n).forall(x => n % x != 0)
 
 isPrime(6)
