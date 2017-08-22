@@ -77,5 +77,8 @@ nqueens.show(queens(4).head)
 
 List(1, 2, 3, 4) mkString " pula "
 
+List("Every", "student", "likes", "Scala").groupBy((element: String) => element.length)
+
+
 
 
