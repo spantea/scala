@@ -37,7 +37,7 @@ object Anagrams {
   def wordOccurrences(w: Word): Occurrences = ((w toLowerCase) groupBy identity map (v => (v._1, v._2.length)) toList) sortBy(_._1)
 
   /** Converts a sentence into its character occurrence list. */
-  def sentenceOccurrences(s: Sentence): Occurrences = for (w <- s; oc <- wordOccurrences(w)) yield oc
+  def sentenceOccurrences(s: Sentence): Occurrences =  wordOccurrences(s.foldLeft("")((a, b) => a + b))
 
   /** The `dictionaryByOccurrences` is a `Map` from different occurrences to a sequence of all
    *  the words that have that occurrence count.
@@ -109,7 +109,7 @@ object Anagrams {
       (a, b) <- x.toMap
       yv = (y.toMap withDefaultValue(0))(a)
       if (b > yv)
-    } yield (a, b - yv)).toList
+    } yield (a, b - yv)).toList sortBy(_._1)
   }
 
   /** Returns a list of all anagram sentences of the given sentence.
@@ -156,15 +156,19 @@ object Anagrams {
 
 
   def main(args: Array[String]): Unit = {
-    println((for {
-      w <- dictionary take 20
-    } yield (w, wordOccurrences(w))).toMap.groupBy(elem => (elem._2, elem._1)))
+//    println((for {
+//      w <- dictionary take 20
+//    } yield (w, wordOccurrences(w))).toMap.groupBy(elem => (elem._2, elem._1)))
+//
+//    println("---------------")
+//
+//    println( (for {
+//      w <- dictionary take 20
+//    } yield (wordOccurrences(w), w)).groupBy(_._1).mapValues(_.map(_._2))
+//    )
 
-    println("---------------")
 
-    println( (for {
-      w <- dictionary take 20
-    } yield (wordOccurrences(w), w)).groupBy(_._1).mapValues(_.map(_._2))
-    )
+    println(wordOccurrences("assessment"))
+    println(wordOccurrences("assess"))
   }
 }
