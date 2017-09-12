@@ -37,5 +37,10 @@ isPrime(-111)
 ((1000 to 100000).toStream filter isPrime)(0)
 
 
+def toMyInt(ch: Char): Int = ch.toInt
+
+List('1', '2', '3') map toMyInt
+
+
 
 

@@ -21,7 +21,7 @@ object Bloxorz extends App {
    */
   abstract class Level extends Solver with StringParserTerrain
 
-  object Level0 extends Level {
+  object Level0 extends Level with GameDef{
     val level =
       """------
         |--ST--
@@ -29,7 +29,7 @@ object Bloxorz extends App {
         |--oo--
         |------""".stripMargin
   }
-
+  //Level0.neighborsWithHistory(Level0.Block(Level0.startPos, Level0.startPos), Nil)
   println(Level0.solution)
 
   /**
