@@ -67,6 +67,9 @@ package object scalashop {
       i += 1
       j = 0
     }
+    if (cells == 0) {
+      return rgba(0, 0, 0, 0)
+    }
 
     rgba(rsum / cells, gsum / cells, bsum / cells, asum / cells)
   }

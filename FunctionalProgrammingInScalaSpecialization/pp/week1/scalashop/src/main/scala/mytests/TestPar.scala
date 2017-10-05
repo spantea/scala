@@ -7,8 +7,8 @@ import scala.util.Random
 
 object TestPar extends App{
 
-  val width = 1000
-  val height = 1000
+  val width = 32
+  val height = 32
   val src = new Img(width, height)
 
   for {
@@ -28,5 +28,5 @@ object TestPar extends App{
 
   println(withWarmer(new Warmer.Default) measure VerticalBoxBlur.blur(src, dst3, 0, width, 1))
 
-  println(withWarmer(new Warmer.Default) measure VerticalBoxBlur.parBlur(src, dst4, 4, 1))
+  println(withWarmer(new Warmer.Default) measure VerticalBoxBlur.parBlur(src, dst4, 32, 1))
 }

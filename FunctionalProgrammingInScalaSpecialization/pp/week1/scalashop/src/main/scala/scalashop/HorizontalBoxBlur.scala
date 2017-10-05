@@ -64,25 +64,12 @@ object HorizontalBoxBlur {
     *  rows.
     */
   def parBlur(src: Img, dst: Img, numTasks: Int, radius: Int): Unit = {
-    var t = 0
-    val stripSize = src.height / numTasks
-    var row = 0; var strip = 0
+    val stripSize = src.height / numTasks max 1
 
-    while (t < numTasks) {
-      val computation = task {
-        while (strip < stripSize || (t == (numTasks - 1) && row < src.height)) {
-          var i = 0
-          while (i < src.width) {
-            dst.update(i, row, boxBlurKernel(src, i, row, radius))
-            i += 1
-          }
-          strip += 1
-          row += 1
-        }
-        strip = 0
-      }
-      computation.join()
-      t += 1
-    }
+    val computations = for {
+      s <- 0 until src.width by stripSize
+    } yield task { blur(src, dst, s, s + stripSize, radius) }
+
+    computations.foreach(_.join())
   }
 }
