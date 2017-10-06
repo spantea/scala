@@ -7,8 +7,8 @@ import scala.util.Random
 
 object TestPar extends App{
 
-  val width = 32
-  val height = 32
+  val width = 320
+  val height = 320
   val src = new Img(width, height)
 
   for {
