@@ -23,10 +23,7 @@ object TestPar extends App{
   val dst4 = new Img(width, height)
 
   println(withWarmer(new Warmer.Default) measure HorizontalBoxBlur.blur(src, dst1, 0, height, 1))
-
   println(withWarmer(new Warmer.Default) measure HorizontalBoxBlur.parBlur(src, dst2, 4, 1))
-
   println(withWarmer(new Warmer.Default) measure VerticalBoxBlur.blur(src, dst3, 0, width, 1))
-
   println(withWarmer(new Warmer.Default) measure VerticalBoxBlur.parBlur(src, dst4, 32, 1))
 }
